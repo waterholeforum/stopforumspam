@@ -1,0 +1,42 @@
+{
+    "name": "waterhole/stopforumspam",
+    "type": "waterhole-extension",
+    "description": "StopForumSpam integration for Waterhole",
+    "license": "MIT",
+    "require": {
+        "waterhole/core": "^0.5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.2",
+        "pestphp/pest": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Waterhole\\StopForumSpam\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Waterhole\\StopForumSpam\\StopForumSpamServiceProvider"
+            ]
+        },
+        "waterhole": {
+            "name": "Stop Forum Spam"
+        }
+    }
+}
