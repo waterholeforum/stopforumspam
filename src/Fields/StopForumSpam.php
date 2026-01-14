@@ -11,6 +11,8 @@ use Waterhole\Models\User;
 
 class StopForumSpam extends Field
 {
+    private const ENDPOINT = 'https://api.stopforumspam.org/api';
+
     public function __construct(public ?User $model, public ?SsoPayload $payload = null)
     {
     }
@@ -41,9 +43,8 @@ class StopForumSpam extends Field
             }
 
             try {
-                $json = Http::timeout(config('waterhole.stopforumspam.timeout', 3))
-                    ->asForm()
-                    ->post(config('waterhole.stopforumspam.endpoint'), [...$params, 'json' => true])
+                $json = Http::asForm()
+                    ->post(self::ENDPOINT, [...$params, 'json' => true])
                     ->json();
             } catch (Throwable) {
                 return;
