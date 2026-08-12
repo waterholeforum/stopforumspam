@@ -25,12 +25,11 @@ test('it blocks spam registration', function () {
         ]),
     ]);
 
-    $response = $this
-        ->post(route('waterhole.register.submit'), [
-            'name' => 'Spammer',
-            'email' => 'spam@example.com',
-            'password' => 'Password123!',
-        ]);
+    $response = $this->post(route('waterhole.register.submit'), [
+        'name' => 'Spammer',
+        'email' => 'spam@example.com',
+        'password' => 'Password123!',
+    ]);
 
     $response->assertSessionHasErrors('spam');
 

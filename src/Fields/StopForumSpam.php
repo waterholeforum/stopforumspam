@@ -13,9 +13,10 @@ class StopForumSpam extends Field
 {
     private const ENDPOINT = 'https://api.stopforumspam.org/api';
 
-    public function __construct(public ?User $model, public ?SsoPayload $payload = null)
-    {
-    }
+    public function __construct(
+        public ?User $model,
+        public ?SsoPayload $payload = null,
+    ) {}
 
     public function render(): string
     {
@@ -43,9 +44,7 @@ class StopForumSpam extends Field
             }
 
             try {
-                $json = Http::asForm()
-                    ->post(self::ENDPOINT, [...$params, 'json' => true])
-                    ->json();
+                $json = Http::asForm()->post(self::ENDPOINT, [...$params, 'json' => true])->json();
             } catch (Throwable) {
                 return;
             }

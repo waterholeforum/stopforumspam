@@ -20,13 +20,8 @@ class StopForumSpamServiceProvider extends Extend\ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'waterhole-stopforumspam');
 
-        $this->publishes(
-            [
-                __DIR__ . '/../config/stopforumspam.php' => config_path(
-                    'waterhole/stopforumspam.php',
-                ),
-            ],
-            'waterhole-stopforumspam-config',
-        );
+        $this->publishes([
+            __DIR__ . '/../config/stopforumspam.php' => config_path('waterhole/stopforumspam.php'),
+        ], 'waterhole-stopforumspam-config');
     }
 }
