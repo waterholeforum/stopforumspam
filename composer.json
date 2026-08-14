@@ -4,7 +4,7 @@
     "description": "StopForumSpam integration for Waterhole",
     "license": "MIT",
     "require": {
-        "waterhole/core": "^0.5|^0.6"
+        "waterhole/core": "^0.5|^0.6|^0.7"
     },
     "require-dev": {
         "carthage-software/mago": "^1.43",
